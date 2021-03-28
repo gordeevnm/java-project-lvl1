@@ -32,12 +32,15 @@ public class GcdGame extends QAGame {
         );
     }
 
+    public static void main(String[] args) {
+        System.out.println(gcd(18, 24));
+    }
     private static int gcd(int a, int b) {
         int m = 1;
-        if (max(a, b) % min(a, b) == 0) {
-            return min(a, b);
+        if (a == b) {
+            return a;
         }
-        for (int i = 2; i <= floor(sqrt(min(a, b))); i++) {
+        for (int i = 2; i <= max(a, b) / 2; i++) {
             if (a % i == 0 && b % i == 0) {
                 m = i;
             }
