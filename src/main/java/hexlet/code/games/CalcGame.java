@@ -1,7 +1,8 @@
 package hexlet.code.games;
 
-import java.util.Random;
 import java.util.function.BiFunction;
+
+import static hexlet.code.games.Rnd.rnd;
 
 /**
  * @author Gordeev Nikita
@@ -12,8 +13,6 @@ public class CalcGame extends QAGame {
     private static final int MIN_NUM = -100;
     private static final int MAX_NUM = 100;
 
-    private final Random random = new Random();
-
     @Override
     public String getName() {
         return "Calc";
@@ -21,9 +20,9 @@ public class CalcGame extends QAGame {
 
     @Override
     public Question nextQuestion() {
-        final int a = rand();
-        final int b = rand();
-        final Operator operator = Operator.values()[random.nextInt(Operator.values().length)];
+        final int a = rnd(MIN_NUM, MAX_NUM);
+        final int b = rnd(MIN_NUM, MAX_NUM);
+        final Operator operator = Operator.values()[rnd(Operator.values().length)];
         final String question = String.format(
                 "%d %s %d",
                 a,
@@ -34,10 +33,6 @@ public class CalcGame extends QAGame {
                 question,
                 String.valueOf(operator.apply(a, b))
         );
-    }
-
-    private int rand() {
-        return MIN_NUM + random.nextInt(MAX_NUM - MIN_NUM + 1);
     }
 
     @Override

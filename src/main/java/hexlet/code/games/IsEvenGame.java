@@ -1,6 +1,6 @@
 package hexlet.code.games;
 
-import java.util.Random;
+import static hexlet.code.games.Rnd.rnd;
 
 /**
  * @author Gordeev Nikita
@@ -8,7 +8,6 @@ import java.util.Random;
  * 26.03.2021
  */
 public class IsEvenGame extends QAGame {
-    private final Random random = new Random();
 
     @Override
     public String getRules() {
@@ -17,7 +16,7 @@ public class IsEvenGame extends QAGame {
 
     @Override
     public Question nextQuestion() {
-        final int num = random.nextInt();
+        final int num = rnd();
         return new SimpleQuestion(
                 String.valueOf(num),
                 num % 2 == 0 ? "yes" : "no"

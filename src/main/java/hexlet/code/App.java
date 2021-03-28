@@ -7,7 +7,8 @@ public class App {
             new GreetGame(),
             new IsEvenGame(),
             new CalcGame(),
-            new GcdGame()
+            new GcdGame(),
+            new ProgressionGame()
     };
 
     public static void main(final String[] args) {
