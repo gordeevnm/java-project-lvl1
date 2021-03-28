@@ -11,3 +11,7 @@ Even
 Calc
 
 [![asciicast](https://asciinema.org/a/TY6xx5E9Eoap92xde8vhEoQBm.svg)](https://asciinema.org/a/TY6xx5E9Eoap92xde8vhEoQBm)
+
+GCD
+
+[![asciicast](https://asciinema.org/a/uQvgMPMnSFeQjh5sCm8ZUqzxd.svg)](https://asciinema.org/a/uQvgMPMnSFeQjh5sCm8ZUqzxd)

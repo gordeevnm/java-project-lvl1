@@ -1,15 +1,13 @@
 package hexlet.code;
 
-import hexlet.code.games.CalcGame;
-import hexlet.code.games.Game;
-import hexlet.code.games.GreetGame;
-import hexlet.code.games.IsEvenGame;
+import hexlet.code.games.*;
 
 public class App {
     private static final Game[] games = new Game[]{
             new GreetGame(),
             new IsEvenGame(),
-            new CalcGame()
+            new CalcGame(),
+            new GcdGame()
     };
 
     public static void main(final String[] args) {
