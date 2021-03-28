@@ -17,7 +17,7 @@ public class ProgressionGame extends QAGame {
 
     @Override
     public String getRules() {
-        return "Find the greatest common divisor of given numbers.";
+        return "What number is missing in the progression?";
     }
 
     public String getName() {
