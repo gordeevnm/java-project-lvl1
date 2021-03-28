@@ -38,12 +38,13 @@ public class ProgressionGame extends QAGame {
     private String toStr(int[] progression, int hideIndex) {
         final StringBuilder sb = new StringBuilder();
         for (int i = 0; i < hideIndex; i++) {
-            sb.append(" ").append(progression[i]).append(" ");
+            sb.append(progression[i]).append(" ");
         }
-        sb.append(" .. ");
+        sb.append(".. ");
         for (int i = hideIndex + 1; i < progression.length; i++) {
-            sb.append(" ").append(progression[i]).append(" ");
+            sb.append(progression[i]).append(" ");
         }
+        sb.deleteCharAt(sb.length() - 1);
 
         return sb.toString();
     }
