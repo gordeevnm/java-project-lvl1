@@ -1,5 +1,6 @@
 package hexlet.code;
 
+import hexlet.code.games.CalcGame;
 import hexlet.code.games.Game;
 import hexlet.code.games.GreetGame;
 import hexlet.code.games.IsEvenGame;
@@ -7,7 +8,8 @@ import hexlet.code.games.IsEvenGame;
 public class App {
     private static final Game[] games = new Game[]{
             new GreetGame(),
-            new IsEvenGame()
+            new IsEvenGame(),
+            new CalcGame()
     };
 
     public static void main(final String[] args) {
