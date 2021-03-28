@@ -25,7 +25,7 @@ public abstract class QAGame implements Game {
                 Cli.println("Correct!");
             } else {
                 Cli.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + question.getAnswer() + "'.");
-                Cli.println("Let's try again, " + Cli.username());
+                Cli.println("Let's try again, " + Cli.username() + "!");
                 return;
             }
         }
