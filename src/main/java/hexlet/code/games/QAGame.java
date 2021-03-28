@@ -16,19 +16,17 @@ public abstract class QAGame implements Game {
     public void start() {
         Cli.greet();
         Cli.println(getRules());
-        int correctCount = 0;
-        while (correctCount < 3) {
+        for (int i = 0; i < 3; i++) {
             final Question question = nextQuestion();
             Cli.println("Question: " + question.getQuestion());
             Cli.print("Your answer: ");
             final String answer = Cli.read();
             if (question.test(answer)) {
                 Cli.println("Correct!");
-                correctCount++;
             } else {
                 Cli.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + question.getAnswer() + "'.");
                 Cli.println("Let's try again, " + Cli.username());
-                correctCount = 0;
+                return;
             }
         }
         Cli.println("Congratulations, "+Cli.username()+"!");
