@@ -1,13 +1,14 @@
-package hexlet.code.games;
+package hexlet.code.games.impl;
 
-import hexlet.code.Cli;
+import hexlet.code.games.Game;
+import hexlet.code.util.Cli;
 
 /**
  * @author Gordeev Nikita
  * gordeevnm@gmail.com
  * 27.03.2021
  */
-public class GreetGame implements Game {
+public final class GreetGame implements Game {
     @Override
     public void start() {
         Cli.greet();

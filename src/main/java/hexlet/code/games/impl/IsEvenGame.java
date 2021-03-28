@@ -1,13 +1,16 @@
-package hexlet.code.games;
+package hexlet.code.games.impl;
 
-import static hexlet.code.games.Rnd.rnd;
+import hexlet.code.games.QAGame;
+import hexlet.code.games.Question;
+
+import static hexlet.code.util.Rnd.rnd;
 
 /**
  * @author Gordeev Nikita
  * gordeevnm@gmail.com
  * 26.03.2021
  */
-public class IsEvenGame extends QAGame {
+public final class IsEvenGame extends QAGame {
 
     @Override
     public String getRules() {

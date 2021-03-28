@@ -1,9 +1,16 @@
 package hexlet.code;
 
-import hexlet.code.games.*;
+import hexlet.code.games.impl.CalcGame;
+import hexlet.code.games.Game;
+import hexlet.code.games.impl.GcdGame;
+import hexlet.code.games.impl.GreetGame;
+import hexlet.code.games.impl.IsEvenGame;
+import hexlet.code.games.impl.PrimeGame;
+import hexlet.code.games.impl.ProgressionGame;
+import hexlet.code.util.Cli;
 
 public class App {
-    private static final Game[] games = new Game[]{
+    private static final Game[] GAMES = new Game[]{
             new GreetGame(),
             new IsEvenGame(),
             new CalcGame(),
@@ -14,8 +21,8 @@ public class App {
 
     public static void main(final String[] args) {
         System.out.println("Please enter the game number and press Enter.");
-        for (int i = 0; i < games.length; i++) {
-            final Game game = games[i];
+        for (int i = 0; i < GAMES.length; i++) {
+            final Game game = GAMES[i];
             Cli.println((i + 1) + " - " + game.getName());
         }
         Cli.println("0 - Exit"); // FIXME 27.03.2021: empty game (?)
@@ -26,12 +33,12 @@ public class App {
             if (gameNum == 0) {
                 return;
             }
-            if (gameNum < 1 || gameNum > games.length) {
+            if (gameNum < 1 || gameNum > GAMES.length) {
                 Cli.println("Invalid input");
                 return;
             }
 
-            games[gameNum - 1].start();
+            GAMES[gameNum - 1].start();
         } catch (NumberFormatException e) {
             Cli.println("Invalid input");
         }

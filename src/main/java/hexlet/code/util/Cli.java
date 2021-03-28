@@ -1,4 +1,4 @@
-package hexlet.code;
+package hexlet.code.util;
 
 import java.util.Scanner;
 
@@ -7,27 +7,27 @@ import java.util.Scanner;
  * gordeevnm@gmail.com
  * 21.03.2021
  */
-public class Cli {
-    private static final Scanner s = new Scanner(System.in);
+public final class Cli {
+    private static final Scanner SCANNER = new Scanner(System.in);
     private static String username = "";
 
     public static void greet() {
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
-        username = s.nextLine();
+        username = SCANNER.nextLine();
         System.out.printf("Hello, %s!%n", username);
     }
 
-    public static void println(String rules) {
+    public static void println(final String rules) {
         System.out.println(rules);
     }
 
-    public static void print(String rules) {
+    public static void print(final String rules) {
         System.out.print(rules);
     }
 
     public static String read() {
-        return s.nextLine();
+        return SCANNER.nextLine();
     }
 
     public static String username() {

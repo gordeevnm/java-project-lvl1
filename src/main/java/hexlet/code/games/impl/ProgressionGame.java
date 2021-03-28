@@ -1,13 +1,16 @@
-package hexlet.code.games;
+package hexlet.code.games.impl;
 
-import static hexlet.code.games.Rnd.rnd;
+import hexlet.code.games.QAGame;
+import hexlet.code.games.Question;
+
+import static hexlet.code.util.Rnd.rnd;
 
 /**
  * @author Gordeev Nikita
  * gordeevnm@gmail.com
  * 26.03.2021
  */
-public class ProgressionGame extends QAGame {
+public final class ProgressionGame extends QAGame {
     private static final int MIN_STEP = 1;
     private static final int MAX_STEP = 50;
     private static final int MIN_LEN = 5;
@@ -35,7 +38,7 @@ public class ProgressionGame extends QAGame {
         );
     }
 
-    private String toStr(int[] progression, int hideIndex) {
+    private String toStr(final int[] progression, final int hideIndex) {
         final StringBuilder sb = new StringBuilder();
         for (int i = 0; i < hideIndex; i++) {
             sb.append(progression[i]).append(" ");

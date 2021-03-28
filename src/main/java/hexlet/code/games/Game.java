@@ -6,6 +6,13 @@ package hexlet.code.games;
  * 27.03.2021
  */
 public interface Game {
+    /**
+     * start game.
+     */
     void start();
+
+    /**
+     * @return game name to print in menu.
+     */
     String getName();
 }

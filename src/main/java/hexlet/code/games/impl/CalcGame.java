@@ -1,15 +1,18 @@
-package hexlet.code.games;
+package hexlet.code.games.impl;
+
+import hexlet.code.games.QAGame;
+import hexlet.code.games.Question;
 
 import java.util.function.BiFunction;
 
-import static hexlet.code.games.Rnd.rnd;
+import static hexlet.code.util.Rnd.rnd;
 
 /**
  * @author Gordeev Nikita
  * gordeevnm@gmail.com
  * 28.03.2021
  */
-public class CalcGame extends QAGame {
+public final class CalcGame extends QAGame {
     private static final int MIN_NUM = -100;
     private static final int MAX_NUM = 100;
 
@@ -22,7 +25,8 @@ public class CalcGame extends QAGame {
     public Question nextQuestion() {
         final int a = rnd(MIN_NUM, MAX_NUM);
         final int b = rnd(MIN_NUM, MAX_NUM);
-        final Operator operator = Operator.values()[rnd(Operator.values().length)];
+        final int opNum = rnd(Operator.values().length);
+        final Operator operator = Operator.values()[opNum];
         final String question = String.format(
                 "%d %s %d",
                 a,
@@ -48,12 +52,13 @@ public class CalcGame extends QAGame {
         private final char opName;
         private final BiFunction<Integer, Integer, Integer> function;
 
-        Operator(char opName, BiFunction<Integer, Integer, Integer> function) {
-            this.opName = opName;
-            this.function = function;
+        Operator(final char opNameArg,
+                 final BiFunction<Integer, Integer, Integer> functionArg) {
+            this.opName = opNameArg;
+            this.function = functionArg;
         }
 
-        public int apply(int a, int b) {
+        public int apply(final int a, final int b) {
             return function.apply(a, b);
         }
 
