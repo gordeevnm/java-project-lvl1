@@ -8,7 +8,8 @@ public class App {
             new IsEvenGame(),
             new CalcGame(),
             new GcdGame(),
-            new ProgressionGame()
+            new ProgressionGame(),
+            new PrimeGame()
     };
 
     public static void main(final String[] args) {

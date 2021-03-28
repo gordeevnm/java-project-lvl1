@@ -21,4 +21,8 @@ public class Rnd {
     public static int rnd() {
         return random.nextInt();
     }
+
+    public static boolean bool() {
+        return random.nextBoolean();
+    }
 }
