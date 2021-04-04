@@ -20,34 +20,32 @@ public class App {
         Cli.println("6 - Prime");
         Cli.println("0 - Exit");
         Cli.print("Your choice: ");
-        final String input = Cli.read();
-        final int gameNum = Integer.parseInt(input);
+        final String gameNum = Cli.read();
         final String[][] qaArr;
         final String rules;
         switch (gameNum) {
-            case 0:
-                return;
-            case 1:
+            case "1":
                 Cli.greet();
                 return;
-            case 2:
+            case "2":
                 rules = ("Answer 'yes' if number even otherwise answer 'no'.");
                 qaArr = IsEvenGame.getQuestions(QUESTIONS_COUNT);
                 break;
-            case 3:
+            case "3":
                 rules = ("What is the result of the expression?");
                 qaArr = CalcGame.getQuestions(QUESTIONS_COUNT);
                 break;
-            case 4:
+            case "4":
                 rules = ("Find the greatest common divisor of given numbers.");
                 qaArr = GcdGame.getQuestions(QUESTIONS_COUNT);
                 break;
-            case 5:
+            case "5":
                 rules = ("What number is missing in the progression?");
                 qaArr = ProgressionGame.getQuestions(QUESTIONS_COUNT);
                 break;
-            case 6:
-                rules = ("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
+            case "6":
+                rules = ("Answer 'yes' if given number is prime. "
+                        + "Otherwise answer 'no'.");
                 qaArr = PrimeGame.getQuestions(QUESTIONS_COUNT);
                 break;
             default:
