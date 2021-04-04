@@ -1,7 +1,4 @@
-package hexlet.code.games.impl;
-
-import hexlet.code.games.QAGame;
-import hexlet.code.games.Question;
+package hexlet.code.games;
 
 import static hexlet.code.util.Rnd.bool;
 import static hexlet.code.util.Rnd.rnd;
@@ -11,7 +8,7 @@ import static hexlet.code.util.Rnd.rnd;
  * gordeevnm@gmail.com
  * 26.03.2021
  */
-public final class PrimeGame extends QAGame {
+public final class PrimeGame {
     private static final int[] PRIMES = new int[]{
             2, 3, 5, 7, 11, 13, 17, 19, 23, 29,
             31, 37, 41, 43, 47, 53, 59, 61, 67, 71,
@@ -65,45 +62,37 @@ public final class PrimeGame extends QAGame {
             3517, 3527, 3529, 3533, 3539, 3541, 3547, 3557, 3559, 3571
     };
 
-    @Override
-    public String getRules() {
-        return "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-    }
-
-    @Override
-    public Question nextQuestion() {
-        final String question;
-        final boolean answer;
-        if (bool()) {
-            question = String.valueOf(PRIMES[rnd(PRIMES.length)]);
-            answer = true;
-        } else {
-            int num;
-            do {
-                num = rnd(PRIMES[PRIMES.length - 1]);
-            } while (num % 2 == 0);
-            question = String.valueOf(num);
-            answer = isPrime(num);
-        }
-        return new SimpleQuestion(
-                question,
-                answer ? "yes" : "no"
-        );
-    }
-
-    private boolean isPrime(final int num) {
-        for (final int prime : PRIMES) {
-            if (num == prime) {
-                return true;
+    public static String[][] getQuestions(final int count) {
+        final String[][] qa = new String[count][];
+        for (int i = 0; i < count; i++) {
+            final String question;
+            final boolean answer;
+            if (bool()) {
+                question = String.valueOf(PRIMES[rnd(PRIMES.length)]);
+                answer = true;
+            } else {
+                int num;
+                do {
+                    num = rnd(PRIMES[PRIMES.length - 1]);
+                } while (num % 2 == 0);
+                question = String.valueOf(num);
+                answer = isPrime(num);
             }
-            if (prime > num) {
+            qa[i] = new String[]{
+                    question,
+                    answer ? "yes" : "no"
+            };
+        }
+
+        return qa;
+    }
+
+    private static boolean isPrime(final int num) {
+        for (int i = 2; i < Math.sqrt(num); i++) {
+            if (num % i == 0) {
                 return false;
             }
         }
-        return false;
-    }
-
-    public String getName() {
-        return "Even";
+        return true;
     }
 }

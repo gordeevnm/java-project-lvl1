@@ -1,7 +1,4 @@
-package hexlet.code.games.impl;
-
-import hexlet.code.games.QAGame;
-import hexlet.code.games.Question;
+package hexlet.code.games;
 
 import static hexlet.code.util.Rnd.rnd;
 
@@ -10,7 +7,7 @@ import static hexlet.code.util.Rnd.rnd;
  * gordeevnm@gmail.com
  * 26.03.2021
  */
-public final class ProgressionGame extends QAGame {
+public final class ProgressionGame {
     private static final int MIN_STEP = 1;
     private static final int MAX_STEP = 50;
     private static final int MIN_LEN = 5;
@@ -18,27 +15,23 @@ public final class ProgressionGame extends QAGame {
     private static final int MIN_START = -20;
     private static final int MAX_START = 20;
 
-    @Override
-    public String getRules() {
-        return "What number is missing in the progression?";
+
+    public static String[][] getQuestions(final int count) {
+        final String[][] qa = new String[count][];
+        for (int i = 0; i < count; i++) {
+            final int[] progression = generateProgression();
+            final int hideIndex = rnd(progression.length);
+            final String question = toStr(progression, hideIndex);
+            qa[i] = new String[]{
+                    question,
+                    String.valueOf(progression[hideIndex])
+            };
+        }
+
+        return qa;
     }
 
-    public String getName() {
-        return "Progression";
-    }
-
-    @Override
-    public Question nextQuestion() {
-        final int[] progression = generateProgression();
-        final int hideIndex = rnd(progression.length);
-        final String question = toStr(progression, hideIndex);
-        return new SimpleQuestion(
-                question,
-                String.valueOf(progression[hideIndex])
-        );
-    }
-
-    private String toStr(final int[] progression, final int hideIndex) {
+    private static String toStr(final int[] progression, final int hideIndex) {
         final StringBuilder sb = new StringBuilder();
         for (int i = 0; i < hideIndex; i++) {
             sb.append(progression[i]).append(" ");
@@ -52,7 +45,7 @@ public final class ProgressionGame extends QAGame {
         return sb.toString();
     }
 
-    private int[] generateProgression() {
+    private static int[] generateProgression() {
         final int step = rnd(MIN_STEP, MAX_STEP);
         final int len = rnd(MIN_LEN, MAX_LEN);
         final int[] arr = new int[len];
