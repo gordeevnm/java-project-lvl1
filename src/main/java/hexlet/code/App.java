@@ -8,6 +8,7 @@ import hexlet.code.games.ProgressionGame;
 import hexlet.code.util.Cli;
 
 public class App {
+    private static final int QUESTIONS_COUNT = 3;
 
     public static void main(final String[] args) {
         Cli.println("Please enter the game number and press Enter.");
@@ -31,23 +32,23 @@ public class App {
                 return;
             case 2:
                 rules = ("Answer 'yes' if number even otherwise answer 'no'.");
-                qaArr = IsEvenGame.getQuestions(3);
+                qaArr = IsEvenGame.getQuestions(QUESTIONS_COUNT);
                 break;
             case 3:
                 rules = ("What is the result of the expression?");
-                qaArr = CalcGame.getQuestions(3);
+                qaArr = CalcGame.getQuestions(QUESTIONS_COUNT);
                 break;
             case 4:
                 rules = ("Find the greatest common divisor of given numbers.");
-                qaArr = GcdGame.getQuestions(3);
+                qaArr = GcdGame.getQuestions(QUESTIONS_COUNT);
                 break;
             case 5:
                 rules = ("What number is missing in the progression?");
-                qaArr = ProgressionGame.getQuestions(3);
+                qaArr = ProgressionGame.getQuestions(QUESTIONS_COUNT);
                 break;
             case 6:
                 rules = ("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-                qaArr = PrimeGame.getQuestions(3);
+                qaArr = PrimeGame.getQuestions(QUESTIONS_COUNT);
                 break;
             default:
                 return;
