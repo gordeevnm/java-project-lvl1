@@ -60,11 +60,11 @@ public final class ProgressionGame {
     private static int[] generateProgression() {
         final int step = rnd(MIN_STEP, MAX_STEP);
         final int len = rnd(MIN_LEN, MAX_LEN);
-        final int[] arr = new int[len];
-        arr[0] = rnd(MIN_START, MAX_START);
+        final int[] progression = new int[len];
+        progression[0] = rnd(MIN_START, MAX_START);
         for (int i = 1; i < len; i++) {
-            arr[i] = arr[i - 1] + step;
+            progression[i] = progression[i - 1] + step;
         }
-        return arr;
+        return progression;
     }
 }
