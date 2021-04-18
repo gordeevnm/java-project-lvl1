@@ -40,14 +40,18 @@ public final class CalcGame {
                 operator,
                 b
         );
-        final int answer = switch (operator) {
-            case '+' -> a + b;
-            case '-' -> a - b;
-            default -> a * b;
-        };
+        final int answer = calc(a, b, operator);
         return new String[]{
                 question,
                 String.valueOf(answer)
+        };
+    }
+
+    private static int calc(final int a, final int b, final char operator) {
+        return switch (operator) {
+            case '+' -> a + b;
+            case '-' -> a - b;
+            default -> a * b;
         };
     }
 }
