@@ -12,6 +12,14 @@ public final class GcdGame {
     private static final int MIN_NUM = 1;
     private static final int MAX_NUM = 50;
 
+    public static String getRules() {
+        return "Find the greatest common divisor of given numbers.";
+    }
+
+    public static String getName() {
+        return "GCD";
+    }
+
     public static String[][] getQuestions(final int count) {
         final String[][] qa = new String[count][];
         for (int i = 0; i < count; i++) {

@@ -16,6 +16,14 @@ public final class ProgressionGame {
     private static final int MAX_START = 20;
 
 
+    public static String getRules() {
+        return "What number is missing in the progression?";
+    }
+
+    public static String getName() {
+        return "Progression";
+    }
+
     public static String[][] getQuestions(final int count) {
         final String[][] qa = new String[count][];
         for (int i = 0; i < count; i++) {

@@ -62,6 +62,15 @@ public final class PrimeGame {
             3517, 3527, 3529, 3533, 3539, 3541, 3547, 3557, 3559, 3571
     };
 
+    public static String getRules() {
+        return "Answer 'yes' if given number is prime. "
+                + "Otherwise answer 'no'.";
+    }
+
+    public static String getName() {
+        return "Prime";
+    }
+
     public static String[][] getQuestions(final int count) {
         final String[][] qa = new String[count][];
         for (int i = 0; i < count; i++) {

@@ -12,6 +12,14 @@ public final class CalcGame {
     private static final int MAX_NUM = 100;
     private static final char[] OPERATORS = new char[]{'+', '*', '-'};
 
+    public static String getRules() {
+        return "What is the result of the expression?";
+    }
+
+    public static String getName() {
+        return "Calc";
+    }
+
     public static String[][] getQuestions(final int count) {
         final String[][] qa = new String[count][];
         for (int i = 0; i < count; i++) {

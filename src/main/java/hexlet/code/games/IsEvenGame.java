@@ -8,6 +8,14 @@ import static hexlet.code.util.Rnd.rnd;
  * 26.03.2021
  */
 public final class IsEvenGame {
+    public static String getRules() {
+        return "Answer 'yes' if number even otherwise answer 'no'.";
+    }
+
+    public static String getName() {
+        return "Even";
+    }
+
     public static String[][] getQuestions(final int count) {
         final String[][] qa = new String[count][];
         for (int i = 0; i < count; i++) {

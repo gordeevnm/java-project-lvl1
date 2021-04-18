@@ -9,13 +9,14 @@ import java.util.Scanner;
  */
 public final class Cli {
     private static final Scanner SCANNER = new Scanner(System.in);
-    private static String username = "";
 
-    public static void greet() {
+    public static String greet() {
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
-        username = SCANNER.nextLine();
+        final String username = SCANNER.nextLine();
         System.out.printf("Hello, %s!%n", username);
+
+        return username;
     }
 
     public static void println(final String rules) {
@@ -28,9 +29,5 @@ public final class Cli {
 
     public static String read() {
         return SCANNER.nextLine();
-    }
-
-    public static String username() {
-        return username;
     }
 }
