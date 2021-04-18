@@ -23,16 +23,20 @@ public final class GcdGame {
     public static String[][] getQuestions(final int count) {
         final String[][] qa = new String[count][];
         for (int i = 0; i < count; i++) {
-            final int a = rnd(MIN_NUM, MAX_NUM);
-            final int b = rnd(MIN_NUM, MAX_NUM);
-            final String question = String.format("%d %d", a, b);
-            qa[i] = new String[]{
-                    question,
-                    String.valueOf(gcd(a, b))
-            };
+            qa[i] = getQuestion();
         }
 
         return qa;
+    }
+
+    private static String[] getQuestion() {
+        final int a = rnd(MIN_NUM, MAX_NUM);
+        final int b = rnd(MIN_NUM, MAX_NUM);
+        final String question = String.format("%d %d", a, b);
+        return new String[]{
+                question,
+                String.valueOf(gcd(a, b))
+        };
     }
 
     private static int gcd(final int a, final int b) {

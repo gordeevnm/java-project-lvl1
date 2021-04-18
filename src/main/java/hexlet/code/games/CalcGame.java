@@ -23,27 +23,31 @@ public final class CalcGame {
     public static String[][] getQuestions(final int count) {
         final String[][] qa = new String[count][];
         for (int i = 0; i < count; i++) {
-            final int a = rnd(MIN_NUM, MAX_NUM);
-            final int b = rnd(MIN_NUM, MAX_NUM);
-            final int opNum = rnd(OPERATORS.length);
-            final char operator = OPERATORS[opNum];
-            final String question = String.format(
-                    "%d %s %d",
-                    a,
-                    operator,
-                    b
-            );
-            final int answer = switch (operator) {
-                case '+' -> a + b;
-                case '-' -> a - b;
-                default -> a * b;
-            };
-            qa[i] = new String[]{
-                    question,
-                    String.valueOf(answer)
-            };
+            qa[i] = getQuestion();
         }
 
         return qa;
+    }
+
+    private static String[] getQuestion() {
+        final int a = rnd(MIN_NUM, MAX_NUM);
+        final int b = rnd(MIN_NUM, MAX_NUM);
+        final int opNum = rnd(OPERATORS.length);
+        final char operator = OPERATORS[opNum];
+        final String question = String.format(
+                "%d %s %d",
+                a,
+                operator,
+                b
+        );
+        final int answer = switch (operator) {
+            case '+' -> a + b;
+            case '-' -> a - b;
+            default -> a * b;
+        };
+        return new String[]{
+                question,
+                String.valueOf(answer)
+        };
     }
 }

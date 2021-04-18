@@ -19,13 +19,17 @@ public final class IsEvenGame {
     public static String[][] getQuestions(final int count) {
         final String[][] qa = new String[count][];
         for (int i = 0; i < count; i++) {
-            final int num = rnd();
-            qa[i] = new String[]{
-                    String.valueOf(num),
-                    num % 2 == 0 ? "yes" : "no"
-            };
+            qa[i] = getQuestion();
         }
 
         return qa;
+    }
+
+    private static String[] getQuestion() {
+        final int num = rnd();
+        return new String[]{
+                String.valueOf(num),
+                num % 2 == 0 ? "yes" : "no"
+        };
     }
 }

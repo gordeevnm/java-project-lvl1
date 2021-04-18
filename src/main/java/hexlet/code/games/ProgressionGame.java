@@ -27,16 +27,20 @@ public final class ProgressionGame {
     public static String[][] getQuestions(final int count) {
         final String[][] qa = new String[count][];
         for (int i = 0; i < count; i++) {
-            final int[] progression = generateProgression();
-            final int hideIndex = rnd(progression.length);
-            final String question = toStr(progression, hideIndex);
-            qa[i] = new String[]{
-                    question,
-                    String.valueOf(progression[hideIndex])
-            };
+            qa[i] = getQuestion();
         }
 
         return qa;
+    }
+
+    private static String[] getQuestion() {
+        final int[] progression = generateProgression();
+        final int hideIndex = rnd(progression.length);
+        final String question = toStr(progression, hideIndex);
+        return new String[]{
+                question,
+                String.valueOf(progression[hideIndex])
+        };
     }
 
     private static String toStr(final int[] progression, final int hideIndex) {

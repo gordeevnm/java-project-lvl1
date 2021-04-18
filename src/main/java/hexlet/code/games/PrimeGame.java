@@ -74,26 +74,30 @@ public final class PrimeGame {
     public static String[][] getQuestions(final int count) {
         final String[][] qa = new String[count][];
         for (int i = 0; i < count; i++) {
-            final String question;
-            final boolean answer;
-            if (bool()) {
-                question = String.valueOf(PRIMES[rnd(PRIMES.length)]);
-                answer = true;
-            } else {
-                int num;
-                do {
-                    num = rnd(PRIMES[PRIMES.length - 1]);
-                } while (num % 2 == 0);
-                question = String.valueOf(num);
-                answer = isPrime(num);
-            }
-            qa[i] = new String[]{
-                    question,
-                    answer ? "yes" : "no"
-            };
+            qa[i] = getQuestion();
         }
 
         return qa;
+    }
+
+    private static String[] getQuestion() {
+        final String question;
+        final boolean answer;
+        if (bool()) {
+            question = String.valueOf(PRIMES[rnd(PRIMES.length)]);
+            answer = true;
+        } else {
+            int num;
+            do {
+                num = rnd(PRIMES[PRIMES.length - 1]);
+            } while (num % 2 == 0);
+            question = String.valueOf(num);
+            answer = isPrime(num);
+        }
+        return new String[]{
+                question,
+                answer ? "yes" : "no"
+        };
     }
 
     private static boolean isPrime(final int num) {
