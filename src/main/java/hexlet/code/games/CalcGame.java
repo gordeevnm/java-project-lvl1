@@ -51,7 +51,8 @@ public final class CalcGame {
         return switch (operator) {
             case '+' -> a + b;
             case '-' -> a - b;
-            default -> a * b;
+            case '*' -> a * b;
+            default -> throw new IllegalArgumentException("Unknown operator " + operator);
         };
     }
 }
