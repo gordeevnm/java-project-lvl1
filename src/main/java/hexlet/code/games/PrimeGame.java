@@ -101,6 +101,12 @@ public final class PrimeGame {
     }
 
     private static boolean isPrime(final int num) {
+        if (num < 0) {
+            throw new IllegalArgumentException("num must be >=0");
+        }
+        if (num < 2) {
+            return false;
+        }
         for (int i = 2; i < Math.sqrt(num); i++) {
             if (num % i == 0) {
                 return false;
